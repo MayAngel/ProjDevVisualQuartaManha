@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using backend.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend
 {
@@ -28,6 +30,10 @@ namespace backend
         {
 
             services.AddControllers();
+            services.AddDbContext<CarteiraContext>(options =>
+                options.UseSqlServer (Configuration.GetConnectionString("carteira"))
+            );
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
