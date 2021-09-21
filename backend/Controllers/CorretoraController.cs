@@ -78,6 +78,7 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Corretora>> PostCorretora(Corretora corretora)
         {
+            corretora.CreateDate = DateTime.Now;
             _context.Corretora.Add(corretora);
             await _context.SaveChangesAsync();
 

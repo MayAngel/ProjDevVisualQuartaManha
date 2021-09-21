@@ -27,7 +27,7 @@ namespace backend.Models
 
         public DateTime CreateDate { get; set; }
 
-        public DateTime LastUpdateDate { get; set; }
+        public Nullable<DateTime> LastUpdateDate { get; set; }
 
         public ICollection<Operacao> Operacoes { get; set; }
        

@@ -8,6 +8,7 @@ namespace backend.Data
     public CarteiraContext(DbContextOptions<CarteiraContext> options) : base(options)
         {
             Database.EnsureCreated();
+            Database.Migrate();
         }
 
         public DbSet<Categoria> Categoria { get; set; }

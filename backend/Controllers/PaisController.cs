@@ -78,6 +78,7 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Pais>> PostPais(Pais pais)
         {
+            pais.CreateDate = DateTime.Now;
             _context.Pais.Add(pais);
             await _context.SaveChangesAsync();
 

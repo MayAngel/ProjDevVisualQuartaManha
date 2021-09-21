@@ -78,10 +78,21 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            _context.Usuario.Add(usuario);
-            await _context.SaveChangesAsync();
+            try
+            {
+                usuario.CreateDate = DateTime.Now;
+                _context.Usuario.Add(usuario);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsuario", new { id = usuario.id }, usuario);
+                return CreatedAtAction("GetUsuario", new { id = usuario.id }, usuario);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+          
         }
 
         // DELETE: api/Usuario/5

@@ -19,7 +19,7 @@ namespace backend.Models
 
         public DateTime CreateDate { get; set; }
 
-        public DateTime LastUpdateDate { get; set; }
+        public Nullable<DateTime> LastUpdateDate { get; set; }
 
         public int PaisId { get; set; }
 
