@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-title> Novo Usuario </mat-card-title>
+  <mat-card-content>
+    <div class="usuario">
+      <mat-card>
+        <mat-card-content>
+          <div class="conteudo-usuario">
+            <div class="conteudo-usuario">
+              <mat-form-field>
+                <mat-label for="nome">Nome do usuario</mat-label>
+                <input matInput placeholder="Nome" type="text" name="nome" [(ngModel)]="nome" />
+              </mat-form-field>
+            </div>
+            <div class="conteudo-usuario">
+              <mat-form-field>
+                <mat-label for="email">email do usuario</mat-label>
+                <input matInput placeholder="email" type="text" name="email" [(ngModel)]="email" />
+              </mat-form-field>
+            </div>
+            <div class="conteudo-usuario">
+              <mat-form-field>
+                <mat-label for="cpf">cpf do usuario</mat-label>
+                <input matInput type="number" name="cpf" [(ngModel)]="cpf" />
+              </mat-form-field>
+            </div>
+            <div class="conteudo-usuario">
+              <mat-form-field>
+                <mat-label for="senha">senha do usuario</mat-label>
+                <input matInput placeholder="senha" type="text" name="senha" [(ngModel)]="senha" />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="cadastrar()">Cadastrar</button>
+      <a mat-stroked-button routerLink=""> Listar Carros </a>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

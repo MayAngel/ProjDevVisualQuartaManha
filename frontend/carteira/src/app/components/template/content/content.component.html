@@ -1,0 +1,87 @@
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side" fixedInViewport fixedTopGap="64">
+    <mat-list>
+      <a mat-list-item routerLink="">
+        <mat-icon matListIcon>home</mat-icon>
+        <span>Pagina Principal</span>
+      </a>
+
+      <a mat-list-item routerLink="usuarios/cadastrar">
+        <mat-icon matListIcon>person</mat-icon>
+        <span>Cadastrar Usuário</span>
+      </a>
+      <a mat-list-item routerLink="usuarios/listar">
+        <mat-icon matListIcon>person</mat-icon>
+        <span>Listar Usuário</span>
+      </a>
+
+      <a mat-list-item routerLink="categorias/cadastrar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Cadastrar Categoria</span>
+      </a>
+      <a mat-list-item routerLink="categorias/listar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Listar Categoria</span>
+      </a>
+
+      <a mat-list-item routerLink="categorias/cadastrar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Cadastrar Categoria</span>
+      </a>
+      <a mat-list-item routerLink="categorias/listar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Listar Categoria</span>
+      </a>
+
+      <a mat-list-item routerLink="corretora/cadastrar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Cadastrar Corretora</span>
+      </a>
+      <a mat-list-item routerLink="corretora/listar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Listar Corretora</span>
+      </a>
+
+      <a mat-list-item routerLink="operacao/cadastrar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Cadastrar Operação</span>
+      </a>
+      <a mat-list-item routerLink="operacao/listar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Listar Operação</span>
+      </a>
+
+      <a mat-list-item routerLink="paises/cadastrar">
+        <mat-icon matListIcon>public</mat-icon>
+        <span>Cadastrar Pais</span>
+      </a>
+      <a mat-list-item routerLink="paises/listar">
+        <mat-icon matListIcon>public</mat-icon>
+        <span>Listar Pais</span>
+      </a>
+
+      <a mat-list-item routerLink="papel/cadastrar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Cadastrar Papel</span>
+      </a>
+      <a mat-list-item routerLink="papel/listar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Listar Papel</span>
+      </a>
+
+      <a mat-list-item routerLink="tipooperacao/cadastrar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Cadastrar Tipo de Operação</span>
+      </a>
+      <a mat-list-item routerLink="tipooperacao/listar">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span>Listar Tipo de Operação</span>
+      </a>
+
+
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

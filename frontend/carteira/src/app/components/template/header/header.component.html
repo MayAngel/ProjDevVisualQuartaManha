@@ -1,0 +1,16 @@
+<!-- <mat-toolbar class="mat-elevation-z4">
+    <a class="nav-title-link" routerLink="">Home</a>
+</mat-toolbar> -->
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div>
+    <!-- <a href="https://www.positronx.io" target="_blank" class="positronx">PositronX.io</a> -->
+    <a class="nav-title-link" routerLink="">Home</a>
+  </div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="usuarios/login" routerLinkActive="active">Log in</a>
+    <a mat-button mat-raised-button routerLink="usuarios/cadastrar" routerLinkActive="active">Cadastre-se</a>
+  </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

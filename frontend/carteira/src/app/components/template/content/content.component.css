@@ -1,0 +1,6 @@
+mat-sidenav-content{
+    padding: 16px;
+}
+mat-sidenav a{
+    text-decoration: none;
+}
