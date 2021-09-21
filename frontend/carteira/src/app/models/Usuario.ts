@@ -4,6 +4,6 @@ export class Usuario{
     email!: string;
     cpf!: number;
     senha!: string;
-    createdAt?: Date;
-    updatedAt?: Date;
+    CreateDate?: Date;
+    LastUpdateDate?: Date;
 }
