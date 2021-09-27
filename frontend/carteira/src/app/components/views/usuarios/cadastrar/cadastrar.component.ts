@@ -1,10 +1,10 @@
 import { UsuarioService } from './../../../../services/usuario.service';
 import { Usuario } from './../../../../models/Usuario';
-//import { MatTableDataSource } from "@angular/material/table";
+import { MatTableDataSource } from "@angular/material/table";
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { MatSnackBar } from "@angular/material/snack-bar";
-
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-cadastrar',
@@ -25,19 +25,19 @@ export class CadastrarUsuarioComponent implements OnInit {
   cadastrar(): void {
     //console.log(usuario);
     let usuario : Usuario = {
-    email = this.email;
-    senha = this.senha;
-    nome = this.nome;
-    cpf = this.cpf;
+    email : this.email,
+    senha : this.senha,
+    nome : this.nome,
+    cpf : this.cpf,
     };
 
     this.service.create(usuario).subscribe((usuario) =>{
       console.log(usuario);
-      // this.snack.open("Usuario cadastrado", "", {
-      //   duration: 3000,
-      //   horizontalPosition: "right",
-      //   verticalPosition: "top",
-      // });
+      this.snack.open("Usuario cadastrado", "", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+      });
       this.router.navigate(["usuario/listar"]);
     });
   }

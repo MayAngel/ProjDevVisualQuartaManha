@@ -29,11 +29,13 @@ namespace backend
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            
             services.AddDbContext<CarteiraContext>(options =>
                 options.UseSqlServer (Configuration.GetConnectionString("carteira"))
             );
 
+            
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
@@ -46,10 +48,11 @@ namespace backend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backend v1"));
              }
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backend v1"));
-
+            
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 
