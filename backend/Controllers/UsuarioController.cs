@@ -76,7 +76,7 @@ namespace backend.Controllers
         // POST: api/Usuario
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        public async Task<ActionResult<Usuario>> PostUsuario([FromBody] Usuario usuario)
         {
             try
             {
