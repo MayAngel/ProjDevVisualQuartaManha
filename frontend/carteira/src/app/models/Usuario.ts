@@ -1,9 +1,9 @@
-export class Usuario{
-    _id!: string;
-    nome!: string;
-    email!: string;
-    cpf!: number;
-    senha!: string;
-    CreateDate?: Date;
-    LastUpdateDate?: Date;
+export interface Usuario{
+    id?: number;
+    nome: string;
+    email: string;
+    cpf: number;
+    senha: string;
+    CreateDate?: string;
+    LastUpdateDate?: string;
 }

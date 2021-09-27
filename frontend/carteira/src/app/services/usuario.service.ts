@@ -8,15 +8,38 @@ import { Usuario } from "../models/Usuario";
 })
 export class UsuarioService {
 
-  baseURL = "https://webapicarteira.azurewebsites.net/api/";
+   private baseURL = "https://webapicarteira.azurewebsites.net/api/";
 
-  constructor(private http: HttpClient) {}
 
-  listar(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.baseURL}usuario`);
+  private status = "";
+
+  private errorMessage = "";
+
+  constructor(private http: HttpClient) { }
+
+  list(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.baseURL}/usuario`);
   }
 
-  cadastrar(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.baseURL}usuario`, usuario);
+  create(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.baseURL}/usuario`, usuario);
+  }
+
+  update(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.baseURL}/usuario`, usuario);
+  }
+
+  delete(usuario: Usuario){
+    //return this.http.delete<Usuario>(`${this.baseURL}/usuario`, usuario);
+        this.http.delete(`${this.baseURL}/usuario`)
+        .subscribe({
+            next: data => {
+                this.status = 'Delete successful';
+            },
+            error: error => {
+                this.errorMessage = error.message;
+                console.error('There was an error!', error);
+            }
+        });
   }
 }
