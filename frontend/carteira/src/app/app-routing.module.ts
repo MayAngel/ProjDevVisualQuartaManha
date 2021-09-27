@@ -5,14 +5,16 @@ import { CadastrarUsuarioComponent } from './components/views/usuarios/cadastrar
 import { ListarUsuarioComponent } from './components/views/usuarios/listar/listar.component';
 
 
-const routes: Routes = [ {
+const routes: Routes = [ 
+  {
     path:'',
-    component:CadastrarUsuarioComponent
+    component: CadastrarUsuarioComponent
   },
   {
-    path:'usuarios/listar',
+    path:'usuario/listar',
     component:ListarUsuarioComponent
-  },];
+  }
+];
 
 
 

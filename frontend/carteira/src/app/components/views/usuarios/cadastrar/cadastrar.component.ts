@@ -24,19 +24,19 @@ export class CadastrarUsuarioComponent implements OnInit {
 
   cadastrar(): void {
     //console.log(usuario);
-    let usuario : Usuario = {
-    email : this.email,
-    senha : this.senha,
-    nome : this.nome,
-    cpf : this.cpf,
-    };
+    let usuario = new Usuario();
+
+    usuario.nome = this.nome;
+    usuario.email = this.email;
+    usuario.senha = this.senha;
+    usuario.cpf = this.cpf;
 
     this.service.create(usuario).subscribe((usuario) =>{
       console.log(usuario);
       this.snack.open("Usuario cadastrado", "", {
         duration: 3000,
-        horizontalPosition: "right",
-        verticalPosition: "top",
+        horizontalPosition: "center",
+        verticalPosition: "bottom",
       });
       this.router.navigate(["usuario/listar"]);
     });
