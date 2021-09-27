@@ -34,10 +34,10 @@ import { ListarUsuarioComponent } from './components/views/usuarios/listar/lista
 @NgModule({
   declarations: [
     AppComponent,
+    CadastrarUsuarioComponent,
+    ListarUsuarioComponent,
     HeaderComponent,
     ContentComponent,
-    CadastrarUsuarioComponent,
-    ListarUsuarioComponent
   ],
   imports: [
     BrowserModule,

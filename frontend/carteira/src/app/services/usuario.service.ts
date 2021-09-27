@@ -8,8 +8,7 @@ import { Usuario } from "../models/Usuario";
 })
 export class UsuarioService {
 
-   private baseURL = "https://webapicarteira.azurewebsites.net/api/";
-
+  private baseURL = "https://webapicarteira.azurewebsites.net/api";
 
   private status = "";
 
