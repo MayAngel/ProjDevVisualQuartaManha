@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Operacao } from 'src/app/models/Operacao';
 import { OperacaoService } from 'src/app/services/operacao.service';
-import { Router, ActivatedRoute, ParamMap  } from "@angular/router";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { Observable } from 'rxjs';
 import { MatTableDataSource } from "@angular/material/table";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -18,20 +18,20 @@ export class OperacaoDetalhesComponent implements OnInit {
     corretoraid: 0,
     papelid: 0,
     quantidade: 0,
-    tipoOperacaoid: 0,
+    tipooperacaoid: 0,
     usuarioid: 0,
     valorTotal: 0,
     valorUnitario: 0,
 
-    }
+  }
 
-  id!:string;
-  constructor(private service: OperacaoService,private route: ActivatedRoute) {
+  id!: string;
+  constructor(private service: OperacaoService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.id = params['id']);
   }
 
 
-    ngOnInit(): void {
+  ngOnInit(): void {
     this.service.detalhes(this.id).subscribe((operacao) => {
       this.operacao = operacao;
       console.log(operacao.id)

@@ -11,9 +11,17 @@ namespace backend.Models
         [Display(Name = "Id")]
         [Column("Id")]
         public int Id { get; set; }
+
+        public int usuarioid { get; set; }
         public Usuario usuario { get; set; }
+
+        public int corretoraid { get; set; }
         public Corretora corretora { get; set; }
+
+        public int papelid { get; set; }
         public Papel papel { get; set; }
+
+        public int tipooperacaoid { get; set; }
         public TipoOperacao tipoOperacao { get; set; }
 
         [Display(Name = "dataOperacao")]

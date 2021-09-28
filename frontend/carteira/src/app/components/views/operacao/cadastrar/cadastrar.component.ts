@@ -30,7 +30,7 @@ export class OperacaoCadastrarComponent implements OnInit {
   corretoraid!: number;
   papelid!: number;
   quantidade!: number;
-  tipoOperacaoid!: number;
+  tipooperacaoid!: number;
   usuarioid!: number;
   valorTotal!: number;
   valorUnitario!: number;
@@ -139,7 +139,7 @@ export class OperacaoCadastrarComponent implements OnInit {
       corretoraid: this.corretoraid,
       papelid: this.papelid,
       quantidade: this.quantidade,
-      tipoOperacaoid: this.tipoOperacaoid,
+      tipooperacaoid: this.tipooperacaoid,
       usuarioid: this.usuarioid,
       valorTotal: this.valorTotal,
       valorUnitario: this.valorUnitario,

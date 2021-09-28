@@ -5,7 +5,7 @@
     <div class="conteudo-operacoes">
       <mat-form-field appearance="fill">
         <mat-label>Selecione o Pais</mat-label>
-        <mat-select [(ngModel)]="paisId" name="corretoraid">
+        <mat-select [(ngModel)]="paisId" name="paisId">
           <mat-option *ngFor="let pais of paises" [value]="pais.id">
             {{pais.nome}}
           </mat-option>

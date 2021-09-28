@@ -14,7 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 export class OperacaoListarComponent implements OnInit {
 
   operacao !: MatTableDataSource<Operacao>;
-  displayedColumns: string[] = ['id', 'valorTotal', 'valorUnitario','corretoraid', 'papelid', 'quantidade','tipoOperacaoid', 'usuarioid','detalhes','carteira','editar','excluir'];
+  displayedColumns: string[] = ['id', 'valorTotal', 'valorUnitario', 'corretoraid', 'papelid', 'quantidade', 'tipooperacaoid', 'usuarioid', 'detalhes', 'carteira', 'editar', 'excluir'];
 
 
   constructor(private service: OperacaoService, private router: Router, private snack: MatSnackBar) { }
