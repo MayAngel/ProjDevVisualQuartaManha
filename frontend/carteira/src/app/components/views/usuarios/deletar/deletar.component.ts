@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   templateUrl: './deletar.component.html',
   styleUrls: ['./deletar.component.css']
 })
-export class DeletarUsuarioComponent implements OnInit {
+export class UsuarioDeletarComponent implements OnInit {
 
 
   id!:string;

@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-title> Detalhes Usuario </mat-card-title>
+  <mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Nome do usuario</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ usuario.nome }}</mat-label>
+    </mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Email</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ usuario.email }}</mat-label>
+    </mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>cpf do usuario</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ usuario.CPF }}</mat-label>
+    </mat-card-content>
+
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>senha do usuario</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ usuario.senha }}</mat-label>
+    </mat-card-content>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a mat-stroked-button routerLink=""> Listar Usuarios </a>
+  </mat-card-actions>
+
+</mat-card>

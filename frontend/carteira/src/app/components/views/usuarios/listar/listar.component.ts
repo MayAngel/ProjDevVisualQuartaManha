@@ -11,10 +11,10 @@ import { RouterModule, Routes } from '@angular/router';
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.css']
 })
-export class ListarUsuarioComponent implements OnInit {
+export class UsuarioListarComponent implements OnInit {
 
   usuarios !: MatTableDataSource<Usuario>;
-  displayedColumns: string[] = ['id', 'nome', 'email', 'cpf','editar','excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'email', 'cpf','detalhes','carteira','editar','excluir'];
 
   constructor(private service: UsuarioService, private router: Router, private snack: MatSnackBar) { }
   email!: string;

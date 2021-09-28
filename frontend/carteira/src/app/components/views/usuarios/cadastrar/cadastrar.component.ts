@@ -11,7 +11,7 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './cadastrar.component.html',
   styleUrls: ['./cadastrar.component.css']
 })
-export class CadastrarUsuarioComponent implements OnInit {
+export class UsuarioCadastrarComponent implements OnInit {
 
   email!: string;
   senha!: string;

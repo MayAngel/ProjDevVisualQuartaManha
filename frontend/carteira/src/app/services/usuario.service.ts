@@ -18,7 +18,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   list(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.baseURL}`);
+    return this.http.get<Usuario[]>(`${this.baseURL}/list`);
   }
 
   // create(usuario: Usuario): Observable<Usuario> {
@@ -57,4 +57,10 @@ export class UsuarioService {
             }
         });
   }
+
+  detalhes(id: String): Observable<Usuario>{
+      console.log(id);
+      return this.http.get<Usuario>(`${this.baseURL}/`+id);
+  }
+
 }
