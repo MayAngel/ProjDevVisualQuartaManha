@@ -9,6 +9,9 @@ namespace backend.Models
     [Table("Usuario")]
     public class Usuario
     {
+        //Construtor
+        public Usuario() => CreateDate = DateTime.Now;
+
         [Display(Name = "Id")]
         [Column("Id")]
         public int id { get; set; }

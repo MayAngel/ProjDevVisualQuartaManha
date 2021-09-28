@@ -23,6 +23,7 @@ namespace backend.Controllers
 
         // GET: api/Usuario
         [HttpGet]
+        [Route("list")]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
             return await _context.Usuario.ToListAsync();
@@ -73,14 +74,13 @@ namespace backend.Controllers
             return NoContent();
         }
 
-        // POST: api/Usuario
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
+
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario([FromBody] Usuario usuario)
         {
             try
             {
-                usuario.CreateDate = DateTime.Now;
                 _context.Usuario.Add(usuario);
                 await _context.SaveChangesAsync();
 
@@ -92,8 +92,29 @@ namespace backend.Controllers
                 throw;
             }
 
-          
+
         }
+        //// POST: api/Usuario
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //[Route("create")]
+        //public ActionResult<Usuario> PostUsuario([FromBody] Usuario usuario)
+        //{
+        //    try
+        //    {               
+        //        _context.Usuario.Add(usuario);
+        //        _context.SaveChanges();
+        //        return Created("", usuario);
+        //        //return CreatedAtAction("GetUsuario", new { id = usuario.id }, usuario);
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw;
+        //    }
+
+
+        //}
 
         // DELETE: api/Usuario/5
         [HttpDelete("{id}")]

@@ -16,29 +16,34 @@ export class CadastrarUsuarioComponent implements OnInit {
   email!: string;
   senha!: string;
   nome!: string;
-  cpf!: number;
+  cpf!: string;
 
   constructor(private service: UsuarioService, private router: Router, private snack: MatSnackBar) { }
 
   ngOnInit(): void { }
 
-  cadastrar(): void {
+   cadastrar() {
     //console.log(usuario);
-    let usuario = new Usuario();
+    let usuario: Usuario ={
+    nome : this.nome,
+    email : this.email,
+    senha : this.senha,
+    CPF : this.cpf,
+    }
 
-    usuario.nome = this.nome;
-    usuario.email = this.email;
-    usuario.senha = this.senha;
-    usuario.cpf = this.cpf;
+    console.log(usuario);
 
-    this.service.create(usuario).subscribe((usuario) =>{
+
+   // await this.service.createAsync(usuario);
+
+    this.service.create(usuario) .subscribe((usuario) => {
       console.log(usuario);
       this.snack.open("Usuario cadastrado", "", {
         duration: 3000,
         horizontalPosition: "center",
         verticalPosition: "bottom",
       });
-      this.router.navigate(["usuario/listar"]);
+      this.router.navigate([""]);
     });
   }
 

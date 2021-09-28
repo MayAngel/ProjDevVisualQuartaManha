@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -27,6 +27,7 @@ import { ContentComponent } from './components/template/content/content.componen
 
 import { CadastrarUsuarioComponent } from './components/views/usuarios/cadastrar/cadastrar.component';
 import { ListarUsuarioComponent } from './components/views/usuarios/listar/listar.component';
+import { DeletarUsuarioComponent } from './components/views/usuarios/deletar/deletar.component';
 // import { HeaderComponent } from './components/template/header/header.component';
 // import { ContentComponent } from './components/template/content/content.component';
 
@@ -38,6 +39,7 @@ import { ListarUsuarioComponent } from './components/views/usuarios/listar/lista
     ListarUsuarioComponent,
     HeaderComponent,
     ContentComponent,
+    DeletarUsuarioComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,12 +8,8 @@ import { Usuario } from "../models/Usuario";
 })
 export class UsuarioService {
 
-<<<<<<< HEAD
-  private baseURL = "https://webapicarteira.azurewebsites.net/api";
-=======
-   private baseURL = "https://webapicarteira.azurewebsites.net/api";
-
->>>>>>> 40dc1920d859be6ef1ab8e98546eab5947a01c69
+  private baseURL = "https://webapicarteira.azurewebsites.net/api/usuario";
+  //private baseURL = "https://localhost:44346/api/usuario";
 
   private status = "";
 
@@ -22,20 +18,35 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   list(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.baseURL}/usuario`);
+    return this.http.get<Usuario[]>(`${this.baseURL}`);
   }
 
-  create(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.baseURL}/usuario`, usuario);
+  // create(usuario: Usuario): Observable<Usuario> {
+  //   return this.http.post<Usuario>(`${this.baseURL}/create`,usuario);
+  // }
+
+    create(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.baseURL}`, usuario);
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(usuario);
+     // const body = { nome: usuario.nome, email: usuario.email, senha:usuario.senha,CPF:usuario.CPF };
+    console.log(body)
+    return this.http.post<Usuario>(this.baseURL + '/create', body,{'headers':headers})
   }
+
+  // async createAsync(usuario: Usuario): Promise<Usuario> {
+  //   const response = await this.http.post<Usuario>(`${this.baseURL}/create`,usuario).toPromise();
+  //   return response;
+  // }
+
 
   update(usuario: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>(`${this.baseURL}/usuario`, usuario);
+    return this.http.put<Usuario>(`${this.baseURL}`, usuario);
   }
 
-  delete(usuario: Usuario){
+  delete(id: string){
     //return this.http.delete<Usuario>(`${this.baseURL}/usuario`, usuario);
-        this.http.delete(`${this.baseURL}/usuario`)
+        this.http.delete(`${this.baseURL}/${id}`)
         .subscribe({
             next: data => {
                 this.status = 'Delete successful';
