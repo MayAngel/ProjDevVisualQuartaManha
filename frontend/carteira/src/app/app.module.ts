@@ -27,6 +27,8 @@ import { ContentComponent } from './components/template/content/content.componen
 
 import { CadastrarUsuarioComponent } from './components/views/usuarios/cadastrar/cadastrar.component';
 import { ListarUsuarioComponent } from './components/views/usuarios/listar/listar.component';
+import { CadastrarComponent } from './components/views/categorias/cadastrar/cadastrar.component';
+import { ListarComponent } from './components/views/categorias/listar/listar.component';
 // import { HeaderComponent } from './components/template/header/header.component';
 // import { ContentComponent } from './components/template/content/content.component';
 
@@ -37,7 +39,9 @@ import { ListarUsuarioComponent } from './components/views/usuarios/listar/lista
     HeaderComponent,
     ContentComponent,
     CadastrarUsuarioComponent,
-    ListarUsuarioComponent
+    ListarUsuarioComponent,
+    CadastrarComponent,
+    ListarComponent
   ],
   imports: [
     BrowserModule,

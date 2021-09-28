@@ -29,15 +29,15 @@ namespace backend
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors(
-                options =>
-                {
-                    options.AddPolicy("CorsPolicy", builder => builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-                }
-            );
+            // services.AddCors(
+            //     options =>
+            //     {
+            //         options.AddPolicy("CorsPolicy", builder => builder
+            //             .AllowAnyOrigin()
+            //             .AllowAnyMethod()
+            //             .AllowAnyHeader());
+            //     }
+            // );
 
             
             services.AddDbContext<CarteiraContext>(options =>
