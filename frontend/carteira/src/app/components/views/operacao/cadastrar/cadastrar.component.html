@@ -4,6 +4,17 @@
 
     <div class="conteudo-operacoes">
       <mat-form-field appearance="fill">
+        <mat-label>Selecione o Usuario</mat-label>
+        <mat-select [(ngModel)]="usuarioid" name="usuarioid">
+          <mat-option *ngFor="let usuario of usuarios" [value]="usuario.id">
+            {{usuario.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="conteudo-operacoes">
+      <mat-form-field appearance="fill">
         <mat-label>Selecione a Corretora</mat-label>
         <mat-select [(ngModel)]="corretoraid" name="corretoraid">
           <mat-option *ngFor="let corretora of corretoras" [value]="corretora.id">
@@ -46,6 +57,10 @@
       <input matInput type="text" name="valorUnitario" [(ngModel)]="valorUnitario" />
     </mat-form-field>
 
+    <mat-form-field appearance="legacy">
+      <mat-label for="valorTotal">valor Total</mat-label>
+      <input matInput type="text" name="valorTotal" [(ngModel)]="valorTotal" />
+    </mat-form-field>
 
   </mat-card-content>
 

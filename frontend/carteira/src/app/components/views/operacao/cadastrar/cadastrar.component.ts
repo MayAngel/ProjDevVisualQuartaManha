@@ -1,3 +1,5 @@
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/models/Usuario';
 import { TipoOperacaoService } from './../../../../services/tipoOperacao.service';
 import { PapelService } from './../../../../services/papel.service';
 import { CorretoraService } from './../../../../services/corretora.service';
@@ -11,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatCardModule } from '@angular/material/card';
-import { FormControl} from '@angular/forms';
-import { Observable} from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 
@@ -36,34 +38,41 @@ export class OperacaoCadastrarComponent implements OnInit {
   corretoras: Corretora[] = [];
   papeis: Papel[] = [];
   tiposOperacoes: TipoOperacao[] = [];
+  usuarios: Usuario[] = [];
 
   myControl: FormControl = new FormControl();
   filteredOptionsCorretora: Observable<Corretora[]>;
   filteredOptionsPapeis: Observable<Papel[]>;
   filteredOptionsTipoOperacao: Observable<TipoOperacao[]>;
+  filteredOptionsUsuario: Observable<Usuario[]>;
 
-  constructor(private serviceCorretora: CorretoraService,private serviceTipoOperacao: TipoOperacaoService,private servicePapel: PapelService, private service: OperacaoService, private router: Router, private snack: MatSnackBar) {
+  constructor(private serviceUsuario: UsuarioService, private serviceCorretora: CorretoraService, private serviceTipoOperacao: TipoOperacaoService, private servicePapel: PapelService, private service: OperacaoService, private router: Router, private snack: MatSnackBar) {
     this.filteredOptionsCorretora = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filterCorretora(value))
     );
 
-     this.filteredOptionsPapeis = this.myControl.valueChanges.pipe(
+    this.filteredOptionsPapeis = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filterPapel(value))
-     );
+    );
 
-     this.filteredOptionsTipoOperacao = this.myControl.valueChanges.pipe(
+    this.filteredOptionsTipoOperacao = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filterTipoOperacao(value))
     );
-   }
+
+    this.filteredOptionsUsuario = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filterUsuario(value))
+    );
+  }
 
   ngOnInit(): void {
-     this.filteredOptionsCorretora = this.myControl.valueChanges.pipe(
+    this.filteredOptionsCorretora = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filterCorretora(value))
-     );
+    );
 
     this.serviceCorretora.list().subscribe((corretoras) => {
       this.corretoras = corretoras;
@@ -72,51 +81,68 @@ export class OperacaoCadastrarComponent implements OnInit {
     this.filteredOptionsPapeis = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filterPapel(value))
-     );
+    );
 
     this.servicePapel.list().subscribe((papeis) => {
       this.papeis = papeis;
     });
 
-     this.filteredOptionsTipoOperacao = this.myControl.valueChanges.pipe(
+    this.filteredOptionsTipoOperacao = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filterTipoOperacao(value))
-     );
+    );
 
     this.serviceTipoOperacao.list().subscribe((TipoOperacao) => {
       this.tiposOperacoes = TipoOperacao;
     });
 
 
+    this.filteredOptionsUsuario = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filterUsuario(value))
+    );
+
+    this.serviceUsuario.list().subscribe((usuarios) => {
+      this.usuarios = usuarios;
+    });
+
+
+
+
 
 
   }
 
-    private _filterCorretora(value: string): Corretora[] {
+  private _filterCorretora(value: string): Corretora[] {
     const filterValue = value.toLowerCase();
     return this.corretoras.filter(option => option.nome.toLowerCase().includes(filterValue));
-    }
+  }
 
-      private _filterPapel(value: string): Papel[] {
+  private _filterPapel(value: string): Papel[] {
     const filterValue = value.toLowerCase();
     return this.papeis.filter(option => option.nome.toLowerCase().includes(filterValue));
-      }
+  }
 
   private _filterTipoOperacao(value: string): TipoOperacao[] {
     const filterValue = value.toLowerCase();
     return this.tiposOperacoes.filter(option => option.nome.toLowerCase().includes(filterValue));
   }
 
-   cadastrar() {
+  private _filterUsuario(value: string): Usuario[] {
+    const filterValue = value.toLowerCase();
+    return this.usuarios.filter(option => option.nome.toLowerCase().includes(filterValue));
+  }
+
+  cadastrar() {
     //console.log(operacao);
     let operacao: Operacao = {
-    corretoraid: this.corretoraid,
-    papelid: this.papelid,
-    quantidade: this.quantidade,
-    tipoOperacaoid: this.tipoOperacaoid,
-    usuarioid: this.usuarioid,
-    valorTotal: this.valorTotal,
-    valorUnitario: this.valorUnitario,
+      corretoraid: this.corretoraid,
+      papelid: this.papelid,
+      quantidade: this.quantidade,
+      tipoOperacaoid: this.tipoOperacaoid,
+      usuarioid: this.usuarioid,
+      valorTotal: this.valorTotal,
+      valorUnitario: this.valorUnitario,
 
     }
 
@@ -124,7 +150,7 @@ export class OperacaoCadastrarComponent implements OnInit {
 
 
 
-    this.service.create(operacao) .subscribe((operacao) => {
+    this.service.create(operacao).subscribe((operacao) => {
       console.log(operacao);
       this.snack.open("Operacao cadastrado", "", {
         duration: 3000,
