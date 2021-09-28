@@ -1,1 +1,27 @@
-<p>detalhes works!</p>
+<mat-card>
+  <mat-card-title> Detalhes Categoria </mat-card-title>
+  <mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Nome da Categoria</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ categoria.nome }}</mat-label>
+    </mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Sigla da Categoria</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ categoria.sigla }}</mat-label>
+    </mat-card-content>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a mat-stroked-button routerLink="/categoria/listar"> Listar Categorias </a>
+  </mat-card-actions>
+
+</mat-card>

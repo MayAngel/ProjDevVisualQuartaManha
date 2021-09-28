@@ -38,7 +38,7 @@ export class PaisCadastrarComponent implements OnInit {
         horizontalPosition: "center",
         verticalPosition: "bottom",
       });
-      this.router.navigate(["paises/listar"]);
+      this.router.navigate(["pais/listar"]);
     });
   }
 

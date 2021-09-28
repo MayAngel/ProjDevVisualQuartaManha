@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { TipoOperacao } from 'src/app/models/TipoOperacao';
+import { TipoOperacaoService } from 'src/app/services/tipoOperacao.service';
+import { Router, ActivatedRoute, ParamMap  } from "@angular/router";
+import { Observable } from 'rxjs';
+import { MatTableDataSource } from "@angular/material/table";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-detalhes',
@@ -7,9 +14,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipoOperacaoDetalhesComponent implements OnInit {
 
-  constructor() { }
+  tipoOperacao: TipoOperacao ={
+    nome: "",
+    sigla:"",
+    }
 
-  ngOnInit(): void {
+  id!:string;
+  constructor(private service: TipoOperacaoService,private route: ActivatedRoute) {
+    this.route.params.subscribe(params => this.id = params['id']);
+  }
+
+
+    ngOnInit(): void {
+    this.service.detalhes(this.id).subscribe((tipoOperacao) => {
+      this.tipoOperacao = tipoOperacao;
+      console.log(tipoOperacao.nome)
+    });
   }
 
 }

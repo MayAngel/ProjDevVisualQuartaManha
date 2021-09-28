@@ -1,1 +1,55 @@
-<p>listar works!</p>
+<mat-card-actions>
+  <a mat-stroked-button color="warm" routerLink="/papel/cadastrar"> Novo Papel </a>
+</mat-card-actions>
+
+<table mat-table [dataSource]="papeis" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let papel"> {{papel.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let papel"> {{papel.nome}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="sigla">
+    <th mat-header-cell *matHeaderCellDef> Sigla </th>
+    <td mat-cell *matCellDef="let papel"> {{papel.sigla}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="detalhes">
+    <th mat-header-cell *matHeaderCellDef> Detalhes </th>
+    <td mat-cell *matCellDef="let papel">
+      <a mat-button color="primary" routerLink="/papel/detalhes/{{ papel.id }}"> Detalhes </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="corretoras">
+    <th mat-header-cell *matHeaderCellDef> corretoras </th>
+    <td mat-cell *matCellDef="let papel">
+      <a mat-button color="primary" routerLink="/corretora/detalhes/{{ papel.id }}"> Corretoras </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="editar">
+    <th mat-header-cell *matHeaderCellDef> editar </th>
+    <td mat-cell *matCellDef="let papel">
+      <a mat-button color="primary" routerLink="/papel/editar/{{ papel.id }}"> Editar </a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="excluir">
+    <th mat-header-cell *matHeaderCellDef> excluir </th>
+    <td mat-cell *matCellDef="let papel">
+      <a mat-button color="warm" routerLink="/papel/deletar/{{ papel.id }}"> Excluir </a>
+    </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

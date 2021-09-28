@@ -1,1 +1,27 @@
-<p>detalhes works!</p>
+<mat-card>
+  <mat-card-title> Detalhes Papel </mat-card-title>
+  <mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Nome do Papel</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ papel.nome }}</mat-label>
+    </mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Sigla do Papel</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ papel.sigla }}</mat-label>
+    </mat-card-content>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a mat-stroked-button routerLink="/papel/listar"> Listar Papeis </a>
+  </mat-card-actions>
+
+</mat-card>

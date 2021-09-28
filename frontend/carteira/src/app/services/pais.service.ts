@@ -42,7 +42,7 @@ export class PaisService {
             },
             error: error => {
                 this.errorMessage = error.message;
-                console.error('There was an error!', error);
+                console.error('Ocorreu um erro ao excluir o registro!', error);
             }
         });
   }

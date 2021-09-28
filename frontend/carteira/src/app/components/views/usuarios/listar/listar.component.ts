@@ -13,7 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 })
 export class UsuarioListarComponent implements OnInit {
 
-  usuarios !: MatTableDataSource<Usuario>;
+  usuario !: MatTableDataSource<Usuario>;
   displayedColumns: string[] = ['id', 'nome', 'email', 'cpf','detalhes','carteira','editar','excluir'];
 
   constructor(private service: UsuarioService, private router: Router, private snack: MatSnackBar) { }
@@ -24,8 +24,8 @@ export class UsuarioListarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.service.list().subscribe((usuarios) => {
-      this.usuarios = new MatTableDataSource<Usuario>(usuarios);
+    this.service.list().subscribe((usuario) => {
+      this.usuario = new MatTableDataSource<Usuario>(usuario);
     });
 
   }

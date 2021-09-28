@@ -1,1 +1,57 @@
-<p>cadastrar works!</p>
+<mat-card>
+  <mat-card-title> Nova Operação </mat-card-title>
+  <mat-card-content>
+
+    <div class="conteudo-operacoes">
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione a Corretora</mat-label>
+        <mat-select [(ngModel)]="corretoraid" name="corretoraid">
+          <mat-option *ngFor="let corretora of corretoras" [value]="corretora.id">
+            {{corretora.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="conteudo-operacoes">
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione o Papel</mat-label>
+        <mat-select [(ngModel)]="papelid" name="papelid">
+          <mat-option *ngFor="let papel of papeis" [value]="papel.id">
+            {{papel.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="conteudo-operacoes">
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione o Tipo de Operação</mat-label>
+        <mat-select [(ngModel)]="tipoOperacaoid" name="tipoOperacaoid">
+          <mat-option *ngFor="let tipoOperacao of tiposOperacoes" [value]="tipoOperacao.id">
+            {{tipoOperacao.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <mat-form-field appearance="legacy">
+      <mat-label for="quantidade">Quantidade</mat-label>
+      <input matInput type="text" name="quantidade" [(ngModel)]="quantidade" />
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label for="valorUnitario">valor Unitario</mat-label>
+      <input matInput type="text" name="valorUnitario" [(ngModel)]="valorUnitario" />
+    </mat-form-field>
+
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="cadastrar()">Cadastrar</button>
+    <a mat-stroked-button routerLink=""> Listar Operações </a>
+  </mat-card-actions>
+
+</mat-card>

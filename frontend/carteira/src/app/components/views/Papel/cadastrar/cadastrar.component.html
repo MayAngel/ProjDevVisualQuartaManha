@@ -1,1 +1,22 @@
-<p>cadastrar works!</p>
+<mat-card>
+  <mat-card-title> Novo Papel </mat-card-title>
+  <mat-card-content>
+
+    <mat-form-field appearance="legacy">
+      <mat-label for="nome">Nome do papel</mat-label>
+      <input matInput type="text" name="nome" [(ngModel)]="nome" />
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label for="sigla">Sigla do papel</mat-label>
+      <input matInput type="text" name="sigla" [(ngModel)]="sigla" />
+    </mat-form-field>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="cadastrar()">Cadastrar</button>
+    <a mat-stroked-button routerLink="/papel/listar"> Listar Papeis </a>
+  </mat-card-actions>
+
+</mat-card>

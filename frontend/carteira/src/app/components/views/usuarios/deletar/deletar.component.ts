@@ -22,7 +22,7 @@ export class UsuarioDeletarComponent implements OnInit {
   ngOnInit(): void {
 
     this.service.delete(this.id);
-      //console.log(paises);
+      //console.log(pais);
       //this.usuario = usuario;
       this.snack.open("Usuario excluido com sucesso!", "", {
         duration: 3000,

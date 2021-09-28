@@ -21,10 +21,6 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(`${this.baseURL}/list`);
   }
 
-  // create(usuario: Usuario): Observable<Usuario> {
-  //   return this.http.post<Usuario>(`${this.baseURL}/create`,usuario);
-  // }
-
     create(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`${this.baseURL}`, usuario);
     const headers = { 'content-type': 'application/json'}
@@ -34,18 +30,11 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.baseURL + '/create', body,{'headers':headers})
   }
 
-  // async createAsync(usuario: Usuario): Promise<Usuario> {
-  //   const response = await this.http.post<Usuario>(`${this.baseURL}/create`,usuario).toPromise();
-  //   return response;
-  // }
-
-
   update(usuario: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(`${this.baseURL}`, usuario);
   }
 
   delete(id: string){
-    //return this.http.delete<Usuario>(`${this.baseURL}/usuario`, usuario);
         this.http.delete(`${this.baseURL}/${id}`)
         .subscribe({
             next: data => {
@@ -53,7 +42,7 @@ export class UsuarioService {
             },
             error: error => {
                 this.errorMessage = error.message;
-                console.error('There was an error!', error);
+                console.error('Ocorreu um erro ao excluir o registro!', error);
             }
         });
   }

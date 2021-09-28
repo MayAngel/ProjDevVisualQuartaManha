@@ -1,1 +1,27 @@
-<p>detalhes works!</p>
+<mat-card>
+  <mat-card-title> Detalhes Tipo de Operacao </mat-card-title>
+  <mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Nome do Tipo de Operacao</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ tipoOperacao.nome }}</mat-label>
+    </mat-card-content>
+
+    <mat-card-subtitle appearance="legacy">
+      <mat-label>Sigla do Tipo de Operacao</mat-label>
+    </mat-card-subtitle>
+
+    <mat-card-content appearance="legacy">
+      <mat-label>{{ tipoOperacao.sigla }}</mat-label>
+    </mat-card-content>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a mat-stroked-button routerLink="/tipooperacao/listar"> Listar Tipo de operações </a>
+  </mat-card-actions>
+
+</mat-card>

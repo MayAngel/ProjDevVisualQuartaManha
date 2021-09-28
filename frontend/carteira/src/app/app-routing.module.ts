@@ -7,13 +7,11 @@ import { UsuarioDeletarComponent } from './components/views/usuarios/deletar/del
 import { UsuarioDetalhesComponent } from './components/views/usuarios/detalhes/detalhes.component';
 import { UsuarioEditarComponent } from './components/views/usuarios/editar/editar.component';
 
-
 import { PaisCadastrarComponent } from './components/views/paises/cadastrar/cadastrar.component';
 import { PaisListarComponent } from './components/views/paises/listar/listar.component';
 import { PaisDeletarComponent } from './components/views/paises/deletar/deletar.component';
 import { PaisDetalhesComponent } from './components/views/paises/detalhes/detalhes.component';
 import { PaisEditarComponent } from './components/views/paises/editar/editar.component';
-
 
 
 import { CarteiraDetalhesComponent } from './components/views/carteira/detalhes/detalhes.component';

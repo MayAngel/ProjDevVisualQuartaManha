@@ -22,7 +22,7 @@ export class PaisDeletarComponent implements OnInit {
   ngOnInit(): void {
 
     this.service.delete(this.id);
-      //console.log(paises);
+      //console.log(pais);
       //this.pais = pais;
       this.snack.open("Pais excluido com sucesso!", "", {
         duration: 3000,
@@ -30,7 +30,7 @@ export class PaisDeletarComponent implements OnInit {
         verticalPosition: "top",
 
       });
-      this.rout.navigate(["paises/listar"]);
+      this.rout.navigate(["pais/listar"]);
   }
 
 }
