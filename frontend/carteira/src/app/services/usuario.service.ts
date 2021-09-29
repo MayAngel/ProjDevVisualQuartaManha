@@ -21,13 +21,17 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(`${this.baseURL}/list`);
   }
 
-    create(usuario: Usuario): Observable<Usuario> {
+  create(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`${this.baseURL}`, usuario);
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(usuario);
      // const body = { nome: usuario.nome, email: usuario.email, senha:usuario.senha,CPF:usuario.CPF };
     console.log(body)
     return this.http.post<Usuario>(this.baseURL + '/create', body,{'headers':headers})
+  }
+
+  getUsuario(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.baseURL}/${id}`);
   }
 
   update(usuario: Usuario): Observable<Usuario> {

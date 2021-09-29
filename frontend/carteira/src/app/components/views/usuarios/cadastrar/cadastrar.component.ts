@@ -22,7 +22,7 @@ export class UsuarioCadastrarComponent implements OnInit {
 
   ngOnInit(): void { }
 
-   cadastrar() {
+  cadastrar() {
     //console.log(usuario);
     let usuario: Usuario ={
     nome : this.nome,

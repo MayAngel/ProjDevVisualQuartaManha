@@ -1,1 +1,29 @@
-<p>editar works!</p>
+<mat-card>
+    <mat-card-title> Editar Usuario </mat-card-title>
+    <mat-card-content>
+  
+      <mat-form-field appearance="legacy">
+        <mat-label for="nome">Nome do usuario</mat-label>
+        <input matInput type="text" name="nome" [(ngModel)]="nome" />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label for="email">email do usuario</mat-label>
+        <input matInput type="text" name="email" [(ngModel)]="email" />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label for="cpf">cpf do usuario</mat-label>
+        <input matInput type="text" name="cpf" [(ngModel)]="cpf" />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label for="senha">senha do usuario</mat-label>
+        <input matInput type="text" name="senha" [(ngModel)]="senha" />
+      </mat-form-field>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="editar()">Salvar</button>
+      <a mat-stroked-button routerLink=""> Listar Usuarios </a>
+    </mat-card-actions>
+  
+  </mat-card>
+  
