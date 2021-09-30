@@ -21,9 +21,13 @@ export class TipoOperacaoService {
     return this.http.get<TipoOperacao[]>(`${this.baseURL}`);
   }
 
-    create(tipoOperacao: TipoOperacao): Observable<TipoOperacao> {
+  getTipoOperacao(id: number): Observable<TipoOperacao> {
+    return this.http.get<TipoOperacao>(`${this.baseURL}/${id}`);
+  }
+
+  create(tipoOperacao: TipoOperacao): Observable<TipoOperacao> {
     return this.http.post<TipoOperacao>(`${this.baseURL}`, tipoOperacao);
-}
+  }
   update(tipoOperacao: TipoOperacao): Observable<TipoOperacao> {
     return this.http.put<TipoOperacao>(`${this.baseURL}`, tipoOperacao);
   }

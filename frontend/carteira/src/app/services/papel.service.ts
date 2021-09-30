@@ -21,9 +21,13 @@ export class PapelService {
     return this.http.get<Papel[]>(`${this.baseURL}`);
   }
 
-    create(papel: Papel): Observable<Papel> {
+  getPapel(id: number): Observable<Papel>{
+    return this.http.get<Papel>(`${this.baseURL}/${id}`);
+  }
+
+  create(papel: Papel): Observable<Papel> {
     return this.http.post<Papel>(`${this.baseURL}`, papel);
-}
+  }
   update(papel: Papel): Observable<Papel> {
     return this.http.put<Papel>(`${this.baseURL}`, papel);
   }

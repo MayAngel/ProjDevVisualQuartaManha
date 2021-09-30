@@ -30,7 +30,7 @@ export class PaisDeletarComponent implements OnInit {
         verticalPosition: "top",
 
       });
-      this.rout.navigate(["pais/listar"]);
+      this.rout.navigate(["paises/listar"]);
   }
 
 }

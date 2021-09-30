@@ -26,7 +26,7 @@ export class UsuarioDeletarComponent implements OnInit {
       //this.usuario = usuario;
       this.snack.open("Usuario excluido com sucesso!", "", {
         duration: 3000,
-        horizontalPosition: "right",
+        horizontalPosition: "center",
         verticalPosition: "top",
 
       });
