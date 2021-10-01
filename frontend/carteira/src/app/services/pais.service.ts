@@ -30,6 +30,10 @@ export class PaisService {
     return this.http.post<Pais>(this.baseURL, body,{'headers':headers})
   }
 
+  getPais(id: number): Observable<Pais>{
+    return this.http.get<Pais>(`${this.baseURL}/${id}`);
+  }
+
   update(pais: Pais): Observable<Pais> {
     return this.http.put<Pais>(`${this.baseURL}`, pais);
   }

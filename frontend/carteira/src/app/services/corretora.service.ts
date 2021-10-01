@@ -21,6 +21,10 @@ export class CorretoraService {
     return this.http.get<Corretora[]>(`${this.baseURL}`);
   }
 
+  getCorretora(id: number): Observable<Corretora> {
+    return this.http.get<Corretora>(`${this.baseURL}/${id}`);
+  }
+
   create(corretora: Corretora): Observable<Corretora> {
     console.log(corretora);
     return this.http.post<Corretora>(`${this.baseURL}`, corretora);

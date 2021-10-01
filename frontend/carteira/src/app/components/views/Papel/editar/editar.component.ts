@@ -1,4 +1,5 @@
 import { Component, OnInit, ValueProvider } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Papel } from 'src/app/models/Papel';
 import { PapelService } from 'src/app/services/papel.service';
@@ -14,7 +15,7 @@ export class PapelEditarComponent implements OnInit {
   nome!: string;
   sigla!: string;
 
-  constructor(private service: PapelService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private service: PapelService, private router: Router, private route: ActivatedRoute, private snack: MatSnackBar) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -35,6 +36,12 @@ export class PapelEditarComponent implements OnInit {
     }
 
     this.service.update(papel).subscribe((papel) => {
+      this.snack.open("Papel editado com sucesso!", "", {
+        duration: 3000,
+        horizontalPosition: "center",
+        verticalPosition: "top",
+
+      });
       this.router.navigate(["papel/listar"]);
     })
   }

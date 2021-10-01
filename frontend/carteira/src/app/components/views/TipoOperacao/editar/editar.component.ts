@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoOperacao } from 'src/app/models/TipoOperacao';
 import { TipoOperacaoService } from 'src/app/services/tipoOperacao.service';
@@ -14,7 +15,7 @@ export class TipoOperacaoEditarComponent implements OnInit {
   nome!: string;
   sigla!: string;
 
-  constructor(private router: Router, private route: ActivatedRoute, private service: TipoOperacaoService) { 
+  constructor(private router: Router, private route: ActivatedRoute, private service: TipoOperacaoService, private snack: MatSnackBar) { 
     route.params.subscribe((params) => {
       this.id = params.id;
       if(this.id != undefined){
@@ -36,6 +37,13 @@ export class TipoOperacaoEditarComponent implements OnInit {
     }
 
     this.service.update(tipoOperacao).subscribe((tipoOperacao) => {
+
+      this.snack.open("Tipo de operação editado com sucesso!", "", {
+        duration: 3000,
+        horizontalPosition: "center",
+        verticalPosition: "top",
+
+      });
       this.router.navigate(["tipooperacao/listar"]);
     })
   }

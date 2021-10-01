@@ -21,9 +21,13 @@ export class CategoriaService {
     return this.http.get<Categoria[]>(`${this.baseURL}`);
   }
 
-    create(categoria: Categoria): Observable<Categoria> {
+  getCategoria(id: number): Observable<Categoria> {
+    return this.http.get<Categoria>(`${this.baseURL}/${id}`);
+  }
+
+  create(categoria: Categoria): Observable<Categoria> {
     return this.http.post<Categoria>(`${this.baseURL}`, categoria);
-}
+  }
   update(categoria: Categoria): Observable<Categoria> {
     return this.http.put<Categoria>(`${this.baseURL}`, categoria);
   }

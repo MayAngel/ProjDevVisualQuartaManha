@@ -21,9 +21,13 @@ export class OperacaoService {
     return this.http.get<Operacao[]>(`${this.baseURL}`);
   }
 
-    create(operacao: Operacao): Observable<Operacao> {
+  getOperacao(id: number): Observable<Operacao>{
+    return this.http.get<Operacao>(`${this.baseURL}/${id}`);
+  }
+
+  create(operacao: Operacao): Observable<Operacao> {
     return this.http.post<Operacao>(`${this.baseURL}`, operacao);
-}
+  }
   update(operacao: Operacao): Observable<Operacao> {
     return this.http.put<Operacao>(`${this.baseURL}`, operacao);
   }
