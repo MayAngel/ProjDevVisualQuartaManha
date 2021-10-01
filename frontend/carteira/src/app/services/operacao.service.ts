@@ -21,7 +21,11 @@ export class OperacaoService {
     return this.http.get<Operacao[]>(`${this.baseURL}`);
   }
 
-  getOperacao(id: number): Observable<Operacao>{
+  listOperacoesUsuario(id: string): Observable<Operacao[]> {
+    return this.http.get<Operacao[]>(`${this.baseURL}/${id}`);
+  }
+
+  getOperacao(id: number): Observable<Operacao> {
     return this.http.get<Operacao>(`${this.baseURL}/${id}`);
   }
 
@@ -32,22 +36,22 @@ export class OperacaoService {
     return this.http.put<Operacao>(`${this.baseURL}`, operacao);
   }
 
-  delete(id: string){
-        this.http.delete(`${this.baseURL}/${id}`)
-        .subscribe({
-            next: data => {
-                this.status = 'Operacao Excluida com sucesso';
-            },
-            error: error => {
-                this.errorMessage = error.message;
-                console.error('Ocorreu um erro ao excluir o registro!', error);
-            }
-        });
+  delete(id: string) {
+    this.http.delete(`${this.baseURL}/${id}`)
+      .subscribe({
+        next: data => {
+          this.status = 'Operacao Excluida com sucesso';
+        },
+        error: error => {
+          this.errorMessage = error.message;
+          console.error('Ocorreu um erro ao excluir o registro!', error);
+        }
+      });
   }
 
-  detalhes(id: String): Observable<Operacao>{
-      console.log(id);
-      return this.http.get<Operacao>(`${this.baseURL}/`+id);
+  detalhes(id: String): Observable<Operacao> {
+    console.log(id);
+    return this.http.get<Operacao>(`${this.baseURL}/` + id);
   }
 
 }

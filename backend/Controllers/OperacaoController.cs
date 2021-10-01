@@ -28,19 +28,25 @@ namespace backend.Controllers
             return await _context.Operacao.ToListAsync();
         }
 
-        // GET: api/Operacao/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Operacao>> GetOperacao(int id)
+        //[Route("byUsuario")]
+        public async Task<ActionResult<IEnumerable<Operacao>>> GetOperacaoByUsuario(int id)
         {
-            var operacao = await _context.Operacao.FindAsync(id);
-
-            if (operacao == null)
-            {
-                return NotFound();
-            }
-
-            return operacao;
+            return await _context.Operacao.Where(c => c.usuarioid == id).ToListAsync();
         }
+        // GET: api/Operacao/5
+        // [HttpGet("{id}")]
+        // public async Task<ActionResult<Operacao>> GetOperacao(int id)
+        // {
+        //     var operacao = await _context.Operacao.FindAsync(id);
+
+        //     if (operacao == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     return operacao;
+        // }
 
         // PUT: api/Operacao/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
