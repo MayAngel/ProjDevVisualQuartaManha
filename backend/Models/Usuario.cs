@@ -6,7 +6,7 @@ using System;
 
 namespace backend.Models
 { 
-    [Table("Usuario")]
+    [Table("Usuarios")]
     public class Usuario
     {
         //Construtor

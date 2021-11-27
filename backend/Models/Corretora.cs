@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace backend.Models
 {
-    [Table("Corretora")]
+    [Table("Corretoras")]
     public class Corretora
     {
         [Display(Name = "Id")]

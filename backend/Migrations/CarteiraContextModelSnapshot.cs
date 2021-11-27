@@ -37,7 +37,7 @@ namespace backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categoria");
+                    b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("backend.Models.Corretora", b =>
@@ -65,7 +65,7 @@ namespace backend.Migrations
 
                     b.HasIndex("PaisId");
 
-                    b.ToTable("Corretora");
+                    b.ToTable("Corretoras");
                 });
 
             modelBuilder.Entity("backend.Models.Operacao", b =>
@@ -120,7 +120,7 @@ namespace backend.Migrations
 
                     b.HasIndex("usuarioid");
 
-                    b.ToTable("Operacao");
+                    b.ToTable("Operacoes");
                 });
 
             modelBuilder.Entity("backend.Models.Pais", b =>
@@ -143,7 +143,7 @@ namespace backend.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Pais");
+                    b.ToTable("Paises");
                 });
 
             modelBuilder.Entity("backend.Models.Papel", b =>
@@ -170,7 +170,7 @@ namespace backend.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Papel");
+                    b.ToTable("Papeis");
                 });
 
             modelBuilder.Entity("backend.Models.TipoOperacao", b =>
@@ -191,7 +191,7 @@ namespace backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TipoOperacao");
+                    b.ToTable("TipoOperacoes");
                 });
 
             modelBuilder.Entity("backend.Models.Usuario", b =>
@@ -224,7 +224,7 @@ namespace backend.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("backend.Models.Corretora", b =>

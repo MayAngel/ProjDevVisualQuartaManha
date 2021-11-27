@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace backend.Models
 {
-    [Table("Pais")]
+    [Table("Paises")]
     public class Pais
     {
         [Display(Name = "Id")]

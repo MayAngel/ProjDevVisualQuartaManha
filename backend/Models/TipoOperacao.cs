@@ -5,7 +5,7 @@ using System;
 
 namespace backend.Models
 {
-    [Table("TipoOperacao")]
+    [Table("TipoOperacoes")]
     public class TipoOperacao
     {
         [Display(Name = "Id")]

@@ -8,7 +8,7 @@ namespace backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categoria",
+                name: "Categorias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,11 +18,11 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categoria", x => x.Id);
+                    table.PrimaryKey("PK_Categorias", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Pais",
+                name: "Paises",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -33,11 +33,11 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pais", x => x.id);
+                    table.PrimaryKey("PK_Paises", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Papel",
+                name: "Papeis",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -49,11 +49,11 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Papel", x => x.Id);
+                    table.PrimaryKey("PK_Papeis", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TipoOperacao",
+                name: "TipoOperacoes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -63,11 +63,11 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoOperacao", x => x.Id);
+                    table.PrimaryKey("PK_TipoOperacoes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Usuario",
+                name: "Usuarios",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -81,11 +81,11 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuario", x => x.Id);
+                    table.PrimaryKey("PK_Usuarios", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Corretora",
+                name: "Corretoras",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -97,17 +97,17 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Corretora", x => x.Id);
+                    table.PrimaryKey("PK_Corretoras", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Corretora_Pais_PaisId",
+                        name: "FK_Corretoras_Paises_PaisId",
                         column: x => x.PaisId,
-                        principalTable: "Pais",
+                        principalTable: "Paises",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Operacao",
+                name: "Operacoes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -125,81 +125,81 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Operacao", x => x.Id);
+                    table.PrimaryKey("PK_Operacoes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Operacao_Corretora_corretoraid",
+                        name: "FK_Operacoes_Corretoras_corretoraid",
                         column: x => x.corretoraid,
-                        principalTable: "Corretora",
+                        principalTable: "Corretoras",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Operacao_Papel_papelid",
+                        name: "FK_Operacoes_Papeis_papelid",
                         column: x => x.papelid,
-                        principalTable: "Papel",
+                        principalTable: "Papeis",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Operacao_TipoOperacao_tipooperacaoid",
+                        name: "FK_Operacoes_TipoOperacoes_tipooperacaoid",
                         column: x => x.tipooperacaoid,
-                        principalTable: "TipoOperacao",
+                        principalTable: "TipoOperacoes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Operacao_Usuario_usuarioid",
+                        name: "FK_Operacoes_Usuarios_usuarioid",
                         column: x => x.usuarioid,
-                        principalTable: "Usuario",
+                        principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Corretora_PaisId",
-                table: "Corretora",
+                name: "IX_Corretoras_PaisId",
+                table: "Corretoras",
                 column: "PaisId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Operacao_corretoraid",
-                table: "Operacao",
+                name: "IX_Operacoes_corretoraid",
+                table: "Operacoes",
                 column: "corretoraid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Operacao_papelid",
-                table: "Operacao",
+                name: "IX_Operacoes_papelid",
+                table: "Operacoes",
                 column: "papelid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Operacao_tipooperacaoid",
-                table: "Operacao",
+                name: "IX_Operacoes_tipooperacaoid",
+                table: "Operacoes",
                 column: "tipooperacaoid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Operacao_usuarioid",
-                table: "Operacao",
+                name: "IX_Operacoes_usuarioid",
+                table: "Operacoes",
                 column: "usuarioid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Categoria");
+                name: "Categorias");
 
             migrationBuilder.DropTable(
-                name: "Operacao");
+                name: "Operacoes");
 
             migrationBuilder.DropTable(
-                name: "Corretora");
+                name: "Corretoras");
 
             migrationBuilder.DropTable(
-                name: "Papel");
+                name: "Papeis");
 
             migrationBuilder.DropTable(
-                name: "TipoOperacao");
+                name: "TipoOperacoes");
 
             migrationBuilder.DropTable(
-                name: "Usuario");
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Pais");
+                name: "Paises");
         }
     }
 }
