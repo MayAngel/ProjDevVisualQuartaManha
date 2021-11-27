@@ -10,7 +10,7 @@ using backend.Models;
 
 namespace backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/corretora")]
     [ApiController]
     public class CorretoraController : ControllerBase
     {
@@ -75,7 +75,7 @@ namespace backend.Controllers
 
         // POST: api/Corretora
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<ActionResult<Corretora>> PostCorretora(Corretora corretora)
         {
             corretora.CreateDate = DateTime.Now;

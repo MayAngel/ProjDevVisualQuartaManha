@@ -41,7 +41,8 @@ namespace backend
 
             
             services.AddDbContext<CarteiraContext>(options =>
-                options.UseSqlServer (Configuration.GetConnectionString("carteira"))
+                // options.UseSqlServer (Configuration.GetConnectionString("carteira"))
+                options.UseSqlServer(Configuration.GetConnectionString("Azure"))
             );
 
             

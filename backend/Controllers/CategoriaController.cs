@@ -10,7 +10,7 @@ using backend.Models;
 
 namespace backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/categoria")]
     [ApiController]
     public class CategoriaController : ControllerBase
     {
@@ -75,7 +75,7 @@ namespace backend.Controllers
 
         // POST: api/Categoria
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
             _context.Categoria.Add(categoria);

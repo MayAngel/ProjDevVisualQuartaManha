@@ -8,7 +8,7 @@ import { Pais } from "../models/Pais";
 })
 export class PaisService {
 
-  private baseURL = "https://webapicarteira.azurewebsites.net/api/pais";
+  private baseURL = "http://localhost:5000/api/categoria/pais";
   //private baseURL = "https://localhost:44346/api/pais";
 
   private status = "";

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace backend.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class EstruturaBanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -112,10 +112,10 @@ namespace backend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    usuarioid = table.Column<int>(type: "int", nullable: true),
-                    corretoraid = table.Column<int>(type: "int", nullable: true),
-                    papelid = table.Column<int>(type: "int", nullable: true),
-                    tipoOperacaoId = table.Column<int>(type: "int", nullable: true),
+                    usuarioid = table.Column<int>(type: "int", nullable: false),
+                    corretoraid = table.Column<int>(type: "int", nullable: false),
+                    papelid = table.Column<int>(type: "int", nullable: false),
+                    tipooperacaoid = table.Column<int>(type: "int", nullable: false),
                     dataOperacao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     valorUnitario = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     quantidade = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -131,25 +131,25 @@ namespace backend.Migrations
                         column: x => x.corretoraid,
                         principalTable: "Corretora",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Operacao_Papel_papelid",
                         column: x => x.papelid,
                         principalTable: "Papel",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Operacao_TipoOperacao_tipoOperacaoId",
-                        column: x => x.tipoOperacaoId,
+                        name: "FK_Operacao_TipoOperacao_tipooperacaoid",
+                        column: x => x.tipooperacaoid,
                         principalTable: "TipoOperacao",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Operacao_Usuario_usuarioid",
                         column: x => x.usuarioid,
                         principalTable: "Usuario",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -168,9 +168,9 @@ namespace backend.Migrations
                 column: "papelid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Operacao_tipoOperacaoId",
+                name: "IX_Operacao_tipooperacaoid",
                 table: "Operacao",
-                column: "tipoOperacaoId");
+                column: "tipooperacaoid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Operacao_usuarioid",

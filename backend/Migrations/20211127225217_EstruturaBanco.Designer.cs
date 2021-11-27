@@ -10,8 +10,8 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(CarteiraContext))]
-    [Migration("20210921233038_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20211127225217_EstruturaBanco")]
+    partial class EstruturaBanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,24 +84,24 @@ namespace backend.Migrations
                     b.Property<DateTime?>("LastUpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("corretoraid")
+                    b.Property<int>("corretoraid")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("dataOperacao")
                         .HasColumnType("datetime2")
                         .HasColumnName("dataOperacao");
 
-                    b.Property<int?>("papelid")
+                    b.Property<int>("papelid")
                         .HasColumnType("int");
 
                     b.Property<decimal>("quantidade")
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("quantidade");
 
-                    b.Property<int?>("tipoOperacaoId")
+                    b.Property<int>("tipooperacaoid")
                         .HasColumnType("int");
 
-                    b.Property<int?>("usuarioid")
+                    b.Property<int>("usuarioid")
                         .HasColumnType("int");
 
                     b.Property<decimal>("valorTotal")
@@ -118,7 +118,7 @@ namespace backend.Migrations
 
                     b.HasIndex("papelid");
 
-                    b.HasIndex("tipoOperacaoId");
+                    b.HasIndex("tipooperacaoid");
 
                     b.HasIndex("usuarioid");
 
@@ -244,19 +244,27 @@ namespace backend.Migrations
                 {
                     b.HasOne("backend.Models.Corretora", "corretora")
                         .WithMany()
-                        .HasForeignKey("corretoraid");
+                        .HasForeignKey("corretoraid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("backend.Models.Papel", "papel")
                         .WithMany()
-                        .HasForeignKey("papelid");
+                        .HasForeignKey("papelid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("backend.Models.TipoOperacao", "tipoOperacao")
                         .WithMany()
-                        .HasForeignKey("tipoOperacaoId");
+                        .HasForeignKey("tipooperacaoid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("backend.Models.Usuario", "usuario")
                         .WithMany("Operacoes")
-                        .HasForeignKey("usuarioid");
+                        .HasForeignKey("usuarioid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("corretora");
 

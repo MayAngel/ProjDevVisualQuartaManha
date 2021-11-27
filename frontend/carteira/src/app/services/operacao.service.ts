@@ -8,7 +8,7 @@ import { Operacao } from "../models/Operacao";
 })
 export class OperacaoService {
 
-  private baseURL = "https://webapicarteira.azurewebsites.net/api/operacao";
+  private baseURL = "http://localhost:5000/api/categoria/operacao";
   //private baseURL = "https://localhost:44346/api/operacao";
 
   private status = "";

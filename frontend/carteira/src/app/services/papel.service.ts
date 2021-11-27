@@ -8,7 +8,7 @@ import { Papel } from "../models/Papel";
 })
 export class PapelService {
 
-  private baseURL = "https://webapicarteira.azurewebsites.net/api/papel";
+  private baseURL = "http://localhost:5000/api/categoria/papel";
   //private baseURL = "https://localhost:44346/api/papel";
 
   private status = "";

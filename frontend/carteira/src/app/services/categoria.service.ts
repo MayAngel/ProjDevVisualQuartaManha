@@ -8,7 +8,7 @@ import { Categoria } from "../models/Categoria";
 })
 export class CategoriaService {
 
-  private baseURL = "https://webapicarteira.azurewebsites.net/api/categoria";
+  private baseURL = "http://localhost:5000/api/categoria";
   //private baseURL = "https://localhost:44346/api/categoria";
 
   private status = "";
@@ -26,7 +26,7 @@ export class CategoriaService {
   }
 
   create(categoria: Categoria): Observable<Categoria> {
-    return this.http.post<Categoria>(`${this.baseURL}`, categoria);
+    return this.http.post<Categoria>(`${this.baseURL}/create`, categoria);
   }
   update(categoria: Categoria): Observable<Categoria> {
     return this.http.put<Categoria>(`${this.baseURL}`, categoria);

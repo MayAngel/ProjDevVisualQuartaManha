@@ -8,7 +8,7 @@ import { Corretora } from "../models/Corretora";
 })
 export class CorretoraService {
 
-  private baseURL = "https://webapicarteira.azurewebsites.net/api/corretora";
+  private baseURL = "http://localhost:5000/api/categoria/corretora";
   //private baseURL = "https://localhost:44346/api/corretora";
 
   private status = "";

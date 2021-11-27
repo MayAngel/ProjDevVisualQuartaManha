@@ -8,7 +8,7 @@ import { Usuario } from "../models/Usuario";
 })
 export class UsuarioService {
 
-  private baseURL = "https://webapicarteira.azurewebsites.net/api/usuario";
+  private baseURL = "http://localhost:5000/api/categoria/usuario";
   //private baseURL = "https://localhost:44346/api/usuario";
 
   private status = "";
@@ -18,7 +18,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   list(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.baseURL}/list`);
+    return this.http.get<Usuario[]>(`${this.baseURL}`);
   }
 
   create(usuario: Usuario): Observable<Usuario> {

@@ -10,7 +10,7 @@ using backend.Models;
 
 namespace backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/usuario")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
@@ -23,7 +23,6 @@ namespace backend.Controllers
 
         // GET: api/Usuario
         [HttpGet]
-        [Route("list")]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
             return await _context.Usuario.ToListAsync();
@@ -76,7 +75,7 @@ namespace backend.Controllers
 
 
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<ActionResult<Usuario>> PostUsuario([FromBody] Usuario usuario)
         {
             try
@@ -96,7 +95,7 @@ namespace backend.Controllers
         }
         //// POST: api/Usuario
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPost]
+        //[HttpPost("create")]
         //[Route("create")]
         //public ActionResult<Usuario> PostUsuario([FromBody] Usuario usuario)
         //{
